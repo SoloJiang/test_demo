@@ -11,7 +11,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // 启用 HMR
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name]/[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -36,10 +36,15 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        loader: 'file-loader',
-        query: {
-          publicPath: '/'
-        }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: 'static/',
+              outputPath: 'static/'
+            }
+          }
+        ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
