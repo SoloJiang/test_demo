@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     Observer: './Observer/src/index.js',
     Canvas: './Canvas/src/index.js',
-    Functional: './Functional/src/index.js'
+    Functional: './Functional/src/index.js',
+    Promise: './Promise/src/index.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // 启用 HMR
@@ -22,7 +23,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'es2015'],
+            presets: ['env'],
             plugins: ['transform-runtime']
           }
         }
